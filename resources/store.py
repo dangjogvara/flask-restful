@@ -24,6 +24,8 @@ class Store(Resource):
         store = StoreModel.find_by_name(name)
         if store:
             store.delete_from_db()
+        else:
+            return {'message': 'No store found.'}
 
         return {'message': 'Store deleted'}
 
